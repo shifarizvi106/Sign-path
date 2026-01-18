@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SignPath</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- WELCOME SCREEN -->
+  <div id="welcomeScreen" class="screen active welcome">
+    <div class="butterfly">
+      <div class="wing left top"></div>
+      <div class="wing right top"></div>
+      <div class="wing left bottom"></div>
+      <div class="wing right bottom"></div>
+      <div class="body"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="smile"></div>
+    </div>
+
+    <h1 class="brand-name">SignPath</h1>
+    <p class="tagline">Learn Indian Sign Language gently.</p>
+
+    <button id="startBtn" class="cta-btn">Start Learning</button>
+  </div>
+
+  <!--  PATH SCREEN -->
+  <div id="pathScreen" class="screen">
+    <header class="top-bar">
+      <h2>Learning Path</h2>
+      <button id="themeToggle" class="icon-btn">🌙</button>
+    </header>
+
+    <div class="path">
+      <div class="lesson-node active" id="lesson1">
+        <div class="icon">🤟</div>
+        <span>Greetings</span>
+      </div>
+
+      <div class="lesson-node locked">
+        <div class="icon">💬</div>
+        <span>Introductions</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON INFO -->
+  <div id="lessonInfoScreen" class="screen">
+    <div class="info-card">
+      <h2>Indian Sign Language</h2>
+      <p class="info-text">
+        ISL is a natural language used by the Deaf community in India.
+        It has its own grammar, structure, and cultural importance.
+      </p>
+      <p class="info-text">
+        Learning ISL promotes inclusion and meaningful communication.
+      </p>
+
+      <div class="carousel">
+        <div class="carousel-slide active">ISL is not signed English.</div>
+        <div class="carousel-slide">Facial expressions matter in ISL.</div>
+        <div class="carousel-slide">Consistency builds understanding.</div>
+      </div>
+
+      <button id="beginLessonBtn" class="cta-btn">Start Lesson</button>
+    </div>
+  </div>
+
+  <!-- LESSON SCREEN -->
+  <div id="lessonScreen" class="screen">
+    <button class="back-btn" id="backBtn">←</button>
+
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+
+    <div class="lesson-card">
+      <div class="sign-visual">
+        <img id="signGif" alt="ISL sign animation"/>
+      </div>
+
+      <button id="replayBtn" class="replay-btn">⟳ Replay</button>
+
+      <h2 id="cardTitle"></h2>
+      <p id="cardDesc"></p>
+    </div>
+
+    <p id="motivatorText" class="motivator"></p>
+
+    <button id="nextBtn" class="cta-btn">Next</button>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

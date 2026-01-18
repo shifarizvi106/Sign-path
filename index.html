@@ -1,73 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignPath ISL</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SignPath</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- LANDING PAGE -->
+<!-- LANDING -->
 <section id="landing" class="screen active">
   <div class="landing-content">
-    <h1 class="logo">🦋 SignPath</h1>
-    <p class="subtitle">Learn Indian Sign Language the fun way</p>
-    <button id="startBtn" class="start-btn">LET’S START LEARNING</button>
+    <div class="butterfly">
+      <div class="wing left"></div>
+      <div class="wing right"></div>
+      <div class="body"></div>
+    </div>
+
+    <h1 class="logo">SignPath 🦋</h1>
+    <p class="subtitle">Learn Indian Sign Language, gently.</p>
+    <button id="startLearning" class="primary-btn">Start Learning</button>
   </div>
 </section>
 
-<!-- PATH PAGE -->
-<section id="path" class="screen">
-  <div class="top-bar">
+<!-- LEARN -->
+<section id="learn" class="screen">
+  <header class="top-bar">
     <span>❤️ 5</span>
-    <span>🔥 3</span>
-  </div>
+    <span>🔥 1</span>
+    <button id="themeToggle">🌙</button>
+  </header>
 
   <div class="path">
-    <div class="node active" id="openLesson">
-      ✋
-    </div>
-
-    <div class="node disabled">💬</div>
-    <div class="node disabled">👥</div>
-    <div class="node disabled">🏠</div>
+    <div class="node active">👋<span>Greetings</span></div>
+    <div class="node active">👨‍👩‍👧<span>Relations</span></div>
+    <div class="node active">😊<span>Emotions</span></div>
+    <div class="node active">🌍<span>General</span></div>
+    <div class="node active">🔤<span>ABC</span></div>
   </div>
 
   <nav class="bottom-nav">
     <div class="nav active">Learn</div>
-    <div class="nav">Review</div>
-    <div class="nav">Profile</div>
+    <a href="progress.html" class="nav">Progress</a>
   </nav>
-</section>
-
-<!-- LESSON PAGE -->
-<section id="lesson" class="screen">
-  <header class="lesson-header">
-    <button id="backBtn">←</button>
-    <h2>SignPath ISL</h2>
-  </header>
-
-  <div class="card">
-
-    <div class="card-frame">
-      <div class="card-preview">
-        <div class="placeholder">Hello</div>
-      </div>
-      <div class="pill">HELLO</div>
-    </div>
-
-    <h3 class="watch">Watch Carefully!</h3>
-
-    <div class="info">
-      <h1>Hello</h1>
-      <p>A wave with the palm facing out.</p>
-    </div>
-
-    <p class="practice">🤟 Practice the movement</p>
-
-    <button class="got-it">GOT IT</button>
-  </div>
 </section>
 
 <script src="app.js"></script>

@@ -80,7 +80,7 @@ document.getElementById("replayBtn").onclick = () => {
 document.getElementById("nextBtn").onclick = () => {
   index++;
   if (index >= LESSON.length) {
-    cardTitle.textContent = "Lesson Complete 🌸";
+    cardTitle.textContent = "Lesson Complete!!";
     cardDesc.textContent = "You learned basic greetings in ISL.";
     signGif.src = "";
     return;

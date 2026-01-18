@@ -1,91 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SignPath ISL</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
+<!-- LANDING PAGE -->
+<section id="landing" class="screen active">
+  <div class="landing-content">
+    <h1 class="logo">🦋 SignPath</h1>
+    <p class="subtitle">Learn Indian Sign Language the fun way</p>
+    <button id="startBtn" class="start-btn">LET’S START LEARNING</button>
+  </div>
+</section>
 
-  <!-- LANDING -->
-  <div id="welcomeScreen" class="screen active center">
-    <h1 class="brand">SignPath 🦋</h1>
-    <p class="tagline">Learn Indian Sign Language, gently.</p>
-    <button id="startBtn" class="primary-btn">LET’S START LEARNING</button>
+<!-- PATH PAGE -->
+<section id="path" class="screen">
+  <div class="top-bar">
+    <span>❤️ 5</span>
+    <span>🔥 3</span>
   </div>
 
-  <!-- PATH -->
-  <div id="pathScreen" class="screen">
-
-    <div class="top-stats">
-      <span>❤️ 5</span>
-      <span>🔥 <span id="streakCount">1</span></span>
-      <button id="themeToggle">🌙</button>
+  <div class="path">
+    <div class="node active" id="openLesson">
+      ✋
     </div>
 
-    <div class="duo-path">
-      <div class="path-node" data-index="0">✋</div>
-      <div class="path-node" data-index="1">💬</div>
-      <div class="path-node" data-index="2">👥</div>
-    </div>
-
-    <nav class="bottom-nav">
-      <div class="nav-item active" id="learnTab">🏠<br>Learn</div>
-      <div class="nav-item" id="reviewTab">📘<br>Review</div>
-      <div class="nav-item">👤<br>Profile</div>
-    </nav>
+    <div class="node disabled">💬</div>
+    <div class="node disabled">👥</div>
+    <div class="node disabled">🏠</div>
   </div>
 
-  <!-- LESSON -->
-  <div id="lessonScreen" class="screen">
+  <nav class="bottom-nav">
+    <div class="nav active">Learn</div>
+    <div class="nav">Review</div>
+    <div class="nav">Profile</div>
+  </nav>
+</section>
 
-    <header class="lesson-header">
-      <button id="backBtn">←</button>
-      <h2>SignPath ISL</h2>
-    </header>
+<!-- LESSON PAGE -->
+<section id="lesson" class="screen">
+  <header class="lesson-header">
+    <button id="backBtn">←</button>
+    <h2>SignPath ISL</h2>
+  </header>
 
-    <div class="lesson-wrapper">
+  <div class="card">
 
-      <div class="sign-frame">
-        <div class="sign-preview">
-          <img id="signGif" />
-        </div>
-        <div class="sign-label" id="cardTitle"></div>
+    <div class="card-frame">
+      <div class="card-preview">
+        <div class="placeholder">Hello</div>
       </div>
-
-      <h3 class="watch-title">Watch Carefully!</h3>
-
-      <div class="sign-info">
-        <h1 class="sign-word" id="cardWord"></h1>
-        <p class="sign-desc" id="cardDesc"></p>
-      </div>
-
-      <div class="practice-hint">🤟 Practice the movement</div>
-
+      <div class="pill">HELLO</div>
     </div>
 
-    <button id="nextBtn" class="got-it-btn">GOT IT</button>
+    <h3 class="watch">Watch Carefully!</h3>
+
+    <div class="info">
+      <h1>Hello</h1>
+      <p>A wave with the palm facing out.</p>
+    </div>
+
+    <p class="practice">🤟 Practice the movement</p>
+
+    <button class="got-it">GOT IT</button>
   </div>
-
-  <!-- REVIEW -->
-  <div id="reviewScreen" class="screen">
-    <h2 class="review-title">Your Progress</h2>
-
-    <div class="review-card">
-      <p>Lessons completed</p>
-      <h1 id="reviewLessons">0</h1>
-    </div>
-
-    <div class="review-card">
-      <p>Signs learned</p>
-      <h1 id="reviewSigns">0</h1>
-    </div>
-  </div>
-
-</div>
+</section>
 
 <script src="app.js"></script>
 </body>

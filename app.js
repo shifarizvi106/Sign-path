@@ -1,114 +1,104 @@
-/* =====================
-   SAFE SCREEN HANDLER
-===================== */
-function showScreen(screenId) {
+/* SCREEN SWITCH */
+function showScreen(id) {
   document.querySelectorAll(".screen")
     .forEach(s => s.classList.remove("active"));
-  document.getElementById(screenId).classList.add("active");
+  document.getElementById(id).classList.add("active");
 }
 
-/* =====================
-   SCREENS
-===================== */
-startBtn.onclick = () => showScreen("pathScreen");
-lesson1.onclick = () => showScreen("lessonInfoScreen");
-beginLessonBtn.onclick = () => {
-  index = 0;
-  showScreen("lessonScreen");
-  showSign();
-};
-backBtn.onclick = () => showScreen("pathScreen");
-
-/* =====================
-   DARK MODE
-===================== */
-themeToggle.onclick = () => {
-  document.body.classList.toggle("dark");
+/* STATE */
+let progress = JSON.parse(localStorage.getItem("progress")) || {
+  unlocked: 1,
+  completed: 0
 };
 
-/* =====================
-   LESSON DATA
-===================== */
+function saveProgress() {
+  localStorage.setItem("progress", JSON.stringify(progress));
+}
+
+/* LESSON DATA */
 const LESSON = [
   {
     title: "HELLO",
-    desc: "A friendly wave.",
+    word: "Hello",
+    desc: "A wave with the palm facing out.",
     gif: "assets/signs/hello.gif"
   },
   {
     title: "HOW ARE YOU",
+    word: "How are you?",
     desc: "A question using both hands.",
     gif: "assets/signs/how_are_you.gif"
   },
   {
     title: "I AM FINE",
-    desc: "Thumb moves upward.",
+    word: "I am fine",
+    desc: "Thumb moves upward from the chest.",
     gif: "assets/signs/i_am_fine.gif"
   }
 ];
 
 let index = 0;
 
-/* =====================
-   ELEMENTS
-===================== */
+/* ELEMENTS */
 const signGif = document.getElementById("signGif");
 const cardTitle = document.getElementById("cardTitle");
+const cardWord = document.getElementById("cardWord");
 const cardDesc = document.getElementById("cardDesc");
-const progressFill = document.getElementById("progressFill");
-const motivatorText = document.getElementById("motivatorText");
 
-/* =====================
-   MOTIVATORS
-===================== */
-const motivators = [
-  "Progress over perfection.",
-  "You’re learning a real language.",
-  "Every sign matters.",
-  "You showed up today."
-];
+/* LANDING */
+startBtn.onclick = () => showScreen("pathScreen");
 
-/* =====================
-   SHOW SIGN
-===================== */
+/* PATH */
+function updatePath() {
+  document.querySelectorAll(".path-node").forEach((node, i) => {
+    node.classList.toggle("active", i < progress.unlocked);
+    node.onclick = () => {
+      if (i < progress.unlocked) {
+        index = 0;
+        showScreen("lessonScreen");
+        showSign();
+      }
+    };
+  });
+}
+
+updatePath();
+
+/* LESSON */
 function showSign() {
   const s = LESSON[index];
   signGif.src = "";
   setTimeout(() => signGif.src = s.gif, 20);
-
   cardTitle.textContent = s.title;
+  cardWord.textContent = s.word;
   cardDesc.textContent = s.desc;
-  progressFill.style.width =
-    `${((index + 1) / LESSON.length) * 100}%`;
-
-  motivatorText.textContent =
-    motivators[Math.floor(Math.random() * motivators.length)];
 }
-
-/* =====================
-   CONTROLS
-===================== */
-replayBtn.onclick = () => showSign();
 
 nextBtn.onclick = () => {
   index++;
   if (index >= LESSON.length) {
-    cardTitle.textContent = "Lesson Complete 🌸";
-    cardDesc.textContent = "You learned basic ISL greetings.";
-    signGif.src = "";
+    progress.completed++;
+    progress.unlocked = Math.max(progress.unlocked, progress.completed + 1);
+    saveProgress();
+    updatePath();
+    showScreen("pathScreen");
     return;
   }
   showSign();
 };
 
-/* =====================
-   CAROUSEL
-===================== */
-const slides = document.querySelectorAll(".carousel-slide");
-let slideIndex = 0;
+backBtn.onclick = () => showScreen("pathScreen");
 
-setInterval(() => {
-  slides[slideIndex].classList.remove("active");
-  slideIndex = (slideIndex + 1) % slides.length;
-  slides[slideIndex].classList.add("active");
-}, 3000);
+/* REVIEW */
+reviewTab.onclick = () => {
+  showScreen("reviewScreen");
+  reviewLessons.textContent = progress.completed;
+  reviewSigns.textContent = progress.completed * LESSON.length;
+};
+
+learnTab.onclick = () => showScreen("pathScreen");
+
+/* DARK MODE */
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
+};

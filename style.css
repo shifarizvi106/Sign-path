@@ -1,35 +1,13 @@
-:root {
-  --pink: #ff7abf;
-  --purple: #9b7bff;
-  --blue: #7ecbff;
-
-  --bg-light: linear-gradient(135deg, #ffd1e8, #e3d6ff, #d6efff);
-  --bg-dark: linear-gradient(135deg, #1c1b2f, #2a245c, #1e3a5f);
-
-  --card-light: #ffffff;
-  --card-dark: #2a2a3f;
-
-  --text-light: #333;
-  --text-dark: #f2f2f7;
-
-  --muted-light: #555;
-  --muted-dark: #b0b0c3;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: system-ui, sans-serif;
-}
-
 body {
   margin: 0;
-  background: var(--bg-light);
-  color: var(--text-light);
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #ffd1e8, #e3d6ff, #d6efff);
+  color: #333;
 }
 
 body.dark {
-  background: var(--bg-dark);
-  color: var(--text-dark);
+  background: linear-gradient(135deg, #1c1b2f, #2a245c, #1e3a5f);
+  color: #f2f2f7;
 }
 
 .screen {
@@ -42,84 +20,41 @@ body.dark {
   display: block;
 }
 
-/* Welcome */
-.welcome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.brand-name {
-  font-size: 2.5rem;
-  margin-top: 20px;
-}
-
-.tagline {
-  margin-bottom: 30px;
-  color: var(--muted-light);
-}
-
-/* Buttons */
 .cta-btn {
-  background: linear-gradient(135deg, var(--blue), var(--purple));
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #7ecbff, #9b7bff);
   color: white;
-  border: none;
-  padding: 16px 24px;
-  border-radius: 18px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  cursor: pointer;
-}
-
-/* Path */
-.path {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  margin-top: 40px;
+  font-weight: bold;
 }
 
 .lesson-node {
-  width: 110px;
-  height: 70px;
-  border-radius: 40px;
-  background: #eee;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.5;
-}
-
-.lesson-node.active {
-  background: var(--blue);
+  padding: 20px;
+  background: #7ecbff;
   color: white;
-  opacity: 1;
+  border-radius: 20px;
+  margin-top: 30px;
   cursor: pointer;
+  width: fit-content;
 }
 
-/* Info */
-.info-card {
-  background: var(--card-light);
-  padding: 24px;
-  border-radius: 24px;
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 999px;
+  margin-bottom: 15px;
 }
 
-body.dark .info-card {
-  background: var(--card-dark);
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff7abf, #9b7bff, #7ecbff);
 }
 
-.carousel {
-  margin: 16px 0;
+img {
+  width: 220px;
+  border-radius: 18px;
 }
 
 .carousel-slide {
@@ -129,58 +64,3 @@ body.dark .info-card {
 .carousel-slide.active {
   display: block;
 }
-
-/* Lesson */
-.lesson-card {
-  background: var(--card-light);
-  border-radius: 22px;
-  padding: 20px;
-}
-
-body.dark .lesson-card {
-  background: var(--card-dark);
-}
-
-.sign-visual img {
-  width: 100%;
-  border-radius: 18px;
-}
-
-.replay-btn {
-  background: none;
-  border: none;
-  color: var(--purple);
-  cursor: pointer;
-}
-
-.progress-bar {
-  height: 10px;
-  background: #ddd;
-  border-radius: 999px;
-  margin-bottom: 15px;
-}
-
-#progressFill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
-}
-
-.motivator {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: var(--muted-light);
-}
-
-/* Butterfly */
-.butterfly { position: relative; width: 120px; height: 120px; }
-.wing { position: absolute; width: 55px; height: 40px; border-radius: 50%; background: var(--pink); }
-.wing.top { top: 0; }
-.wing.bottom { top: 40px; }
-.wing.left { left: 0; }
-.wing.right { right: 0; }
-.body { width: 12px; height: 60px; background: #555; margin: auto; }
-.eye { width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; top: 35px; }
-.eye.left { left: 52px; }
-.eye.right { right: 52px; }
-.smile { width: 12px; border-bottom: 2px solid white; position: absolute; top: 45px; left: 50%; transform: translateX(-50%); }
